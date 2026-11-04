@@ -1,0 +1,9 @@
+node_modules/
+work/
+artifacts/
+.cache/
+tools/emsdk/
+*.log
+*.tmp
+.DS_Store
+Thumbs.db

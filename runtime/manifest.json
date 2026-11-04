@@ -1,0 +1,9 @@
+{
+  "game": "th19",
+  "protocol": "eagler-touhou/1",
+  "features": {
+    "thprac": false,
+    "languages": false,
+    "focusHitbox": false
+  }
+}

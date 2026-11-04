@@ -1,0 +1,9 @@
+# Preserve the original archive bytes. GitHub requires LFS for this >100 MiB file.
+content/th19.dat filter=lfs diff=lfs merge=lfs -text
+*.mjs text eol=lf
+*.js text eol=lf
+*.cpp text eol=lf
+*.hpp text eol=lf
+*.h text eol=lf
+*.md text eol=lf
+*.bat text eol=crlf

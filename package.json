@@ -1,0 +1,13 @@
+{
+  "name": "th19-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Self-contained TH19 Web game source, runtime and original resources",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "start": "node serve.mjs",
+    "build": "node scripts/build-eagler.mjs",
+    "check": "node scripts/check-project.mjs"
+  }
+}

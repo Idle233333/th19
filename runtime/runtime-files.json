@@ -1,0 +1,33 @@
+{
+  "schema": "eagler-touhou/runtime-directory/1",
+  "files": {
+    "th19.html": {
+      "bytes": 577,
+      "sha256": "690e958a1a01bc65d5b125b0dc9f2a416bd4d3799d1bd8b8e6bb471b676da185"
+    },
+    "shell.mjs": {
+      "bytes": 15752,
+      "sha256": "c7a3f3097f2520c28cea6d8ac9cb39159e415c6084c807650758818ad9e09e5e"
+    },
+    "managed.css": {
+      "bytes": 827,
+      "sha256": "4602ffec5875d1ed94cfd0f19e5933e6a13131345f23c4d2d290fc97cfd0a3ea"
+    },
+    "keyboard.mjs": {
+      "bytes": 955,
+      "sha256": "f2183ee4d67b27f7c0bc3e50c784d57756bf36277799bb0958514e5b3760b498"
+    },
+    "th19.mjs": {
+      "bytes": 230162,
+      "sha256": "40dd2be2813c08d8ae9ff7d32bc0d7cef0e266372d4383b8ad4cfdd547d7ace9"
+    },
+    "th19.wasm": {
+      "bytes": 8864747,
+      "sha256": "f44edc44228e70a6ab36902879d9d63d139274fbf01fbd779cfa34b0e8ca537f"
+    },
+    "manifest.json": {
+      "bytes": 145,
+      "sha256": "c257cf993e8487aee5ddcb75110b8db09ae1c2cb64f680f5c027f70d79f15c10"
+    }
+  }
+}
