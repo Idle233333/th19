@@ -17,6 +17,13 @@ class GameWorld;
 // `call` can resolve sub names across files (common.ecl -> wave01.ecl ...).
 class EclVm {
 public:
+    EclVm()=default;
+    EclVm(const EclVm&);
+    EclVm& operator=(const EclVm&);
+    EclVm(EclVm&&) noexcept;
+    EclVm& operator=(EclVm&&) noexcept;
+    // Retarget every async descendant after restoring into a different world.
+    void restore_world(GameWorld* world);
     void attach_program(const EclProgram& program);   // append a program to the set
     void attach_world(GameWorld* w) noexcept {world_=w;}
     bool start(const char* sub_name);       // enter a sub at its first instruction
@@ -37,6 +44,7 @@ public:
     u32 instruction_offset() const noexcept {return ip_;}
 
 private:
+    void rebind_tree(EclVm* root,GameWorld* world);
     struct Frame {i32 prog=-1;i32 sub=-1;u32 ip=0;i32 bp=0;double time=0;size_t locals_size=0;};
     std::vector<const EclProgram*> programs_;
     GameWorld* world_=nullptr;
@@ -72,5 +80,17 @@ private:
     bool stop_async_id(i32 id);
     bool step_self();
     bool game_object(const EclInstruction& ins);
+};
+// Enemy snapshots own independent VM trees; program bytecode remains immutable
+// and must outlive both the running world and its retained checkpoints.
+struct EclInstance:std::unique_ptr<EclVm> {
+ using Base=std::unique_ptr<EclVm>;
+ using Base::Base;using Base::operator=;
+ EclInstance()=default;
+ EclInstance(Base&& other):Base(std::move(other)){}
+ EclInstance(const EclInstance& other):Base(other?std::make_unique<EclVm>(*other):nullptr){}
+ EclInstance& operator=(const EclInstance& other){if(this!=&other){if(!other)reset();else if(*this)**this=*other;else Base::operator=(std::make_unique<EclVm>(*other));}return *this;}
+ EclInstance(EclInstance&&) noexcept=default;
+ EclInstance& operator=(EclInstance&&) noexcept=default;
 };
 }

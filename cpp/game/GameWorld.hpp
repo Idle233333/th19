@@ -213,7 +213,7 @@ struct Enemy {
     bool spirit_active=false;   // armed flag
     i32 spirit_params[5]={10,10,30,20,10}; // 1029 damage, 1030 secondary, 1031 duration; 1032 stored separately
     i32 attack_rank=-1; // EnemyInf +0x5168; 1034/1035 select opposite player's attack level.
-    std::unique_ptr<EclVm> vm;  // the sub's VM (owns host_id=id)
+    EclInstance vm;  // the sub's VM (owns host_id=id)
 };
 struct Bullet {
     u32 id=0;

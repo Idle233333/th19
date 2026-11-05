@@ -19,11 +19,14 @@ void AnmVm::jump_to(i32 offset,i32 new_time){
 //   10010 -> signed angle, 10011 -> unsigned scalar, 10012 -> signed scalar
 //   10013,10014,10015 -> x / y / z
 // A param whose mask bit is set is a variable reference; otherwise immediate.
+namespace { u32 random_state=0x12345678; }
+u32 AnmVm::random_checkpoint(){return random_state;}
+void AnmVm::restore_random(u32 state){random_state=state;}
+void AnmVm::seed_random(u32 seed){random_state=seed;}
 float AnmVm::rand_unit(){
-    // simple deterministic LCG returning [0,1); seeded per-call from a static
-    static u32 s=0x12345678;
-    s = s * 1664525u + 1013904223u;
-    return float(s) / 4294967296.0f;
+    // Preserve the existing stream; online matches reset it at the shared start.
+    random_state = random_state * 1664525u + 1013904223u;
+    return float(random_state) / 4294967296.0f;
 }
 float AnmVm::read_var_f(i32 id) const{
     switch(id){

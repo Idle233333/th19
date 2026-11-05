@@ -5,6 +5,63 @@
 #include <cmath>
 #include <cstdio>
 namespace th19 {
+void EclVm::rebind_tree(EclVm* root,GameWorld* world){
+ tree_root_=root;world_=world;
+ for(auto&child:children)child->rebind_tree(root,world);
+}
+void EclVm::restore_world(GameWorld* world){rebind_tree(this,world);}
+EclVm::EclVm(const EclVm& other){*this=other;}
+EclVm& EclVm::operator=(const EclVm& other){
+ if(this==&other)return *this;
+ host_id=other.host_id;
+ has_host=other.has_host;
+ programs_=other.programs_;
+ world_=other.world_;
+ prog_=other.prog_;
+ sub_=other.sub_;
+ ip_=other.ip_;
+ bp_=other.bp_;
+ time_=other.time_;
+ waiting_=other.waiting_;
+ wait_target_=other.wait_target_;
+ wait_size_=other.wait_size_;
+ stack_=other.stack_;
+ frames_=other.frames_;
+ globals_=other.globals_;
+ locals_=other.locals_;
+ ended_=other.ended_;
+ error_=other.error_;
+ float_motions_=other.float_motions_;
+ async_id_=other.async_id_;
+ children.resize(other.children.size());
+ for(size_t i=0;i<children.size();++i){if(children[i])*children[i]=*other.children[i];else children[i]=std::make_unique<EclVm>(*other.children[i]);}
+ rebind_tree(this,world_);return *this;
+}
+EclVm::EclVm(EclVm&& other) noexcept{*this=std::move(other);}
+EclVm& EclVm::operator=(EclVm&& other) noexcept{
+ if(this==&other)return *this;
+ host_id=std::move(other.host_id);
+ has_host=std::move(other.has_host);
+ programs_=std::move(other.programs_);
+ world_=std::move(other.world_);
+ prog_=std::move(other.prog_);
+ sub_=std::move(other.sub_);
+ ip_=std::move(other.ip_);
+ bp_=std::move(other.bp_);
+ time_=std::move(other.time_);
+ waiting_=std::move(other.waiting_);
+ wait_target_=std::move(other.wait_target_);
+ wait_size_=std::move(other.wait_size_);
+ stack_=std::move(other.stack_);
+ frames_=std::move(other.frames_);
+ globals_=std::move(other.globals_);
+ locals_=std::move(other.locals_);
+ ended_=std::move(other.ended_);
+ error_=std::move(other.error_);
+ float_motions_=std::move(other.float_motions_);
+ async_id_=std::move(other.async_id_);
+ children=std::move(other.children);rebind_tree(this,world_);return *this;
+}
 void EclVm::attach_program(const EclProgram& program){programs_.push_back(&program);}
 i32 EclVm::read_i32(u32 off){if(off+4>stream_len()){error_=true;return 0;}const u8* b=stream()+off;return i32(u32(b[0])|(u32(b[1])<<8)|(u32(b[2])<<16)|(u32(b[3])<<24));}
 float EclVm::read_f32(u32 off){i32 b=read_i32(off);float v;std::memcpy(&v,&b,4);return v;}

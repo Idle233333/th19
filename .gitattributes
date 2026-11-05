@@ -6,4 +6,8 @@ content/th19.dat filter=lfs diff=lfs merge=lfs -text
 *.hpp text eol=lf
 *.h text eol=lf
 *.md text eol=lf
+*.inc text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+*.json text eol=lf
 *.bat text eol=crlf

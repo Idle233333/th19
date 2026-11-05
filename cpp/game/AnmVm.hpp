@@ -88,6 +88,9 @@ struct AnmVm {
     i32   read_var_i(i32 id) const;
     void  write_var_i(i32 id, i32 v);
     static float rand_unit();
+    static void seed_random(u32 seed);
+    static u32 random_checkpoint();
+    static void restore_random(u32 state);
 private:
     const AnmVm* execution_parent_=nullptr; // valid only while tick() executes; never retained across moves
     bool creation_registers_=false;

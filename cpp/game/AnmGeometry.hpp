@@ -8,6 +8,8 @@ struct AnmGeometryVertex {float x,y;u32 color;};
 // 615 dispatch at 0x4c5be0 adds half the width BEFORE the ring helper: [R,R+W].
 inline std::vector<AnmGeometryVertex> anmGeometry(const AnmVm&v,float sx=1,float sy=1,float secondaryParent=-1){
  std::vector<AnmGeometryVertex> out;if(!v.visible)return out;
+ if(v.geometry==0)return out;
+ out.reserve(std::clamp(v.segments,4,256)*6);
  const u32 c=(u32(v.alpha)<<24)|(u32(v.r)<<16)|(u32(v.g)<<8)|v.b;
  const u32 d=(u32(v.alpha2)<<24)|(u32(v.r2)<<16)|(u32(v.g2)<<8)|v.b2;
  const float parentY=secondaryParent<0?sy:secondaryParent;
