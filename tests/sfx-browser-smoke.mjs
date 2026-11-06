@@ -5,7 +5,7 @@ import {mkdirSync,writeFileSync} from 'node:fs';
 const option=(name,fallback)=>process.argv.find(arg=>arg.startsWith(`--${name}=`))?.slice(name.length+3)||fallback;
 const output=resolve(option('output','artifacts/audio-browser'));mkdirSync(output,{recursive:true});
 const executablePath=process.env.TH19_BROWSER;if(!executablePath)throw Error('Set TH19_BROWSER.');
-const modulePath=process.env.TH19_PUPPETEER_MODULE||resolve(import.meta.dirname,'../node_modules/puppeteer-core/lib/puppeteer/puppeteer-core.js');
+const modulePath=process.env.TH19_PUPPETEER_MODULE||resolve(import.meta.dirname,'../../../launcher/node_modules/puppeteer-core/lib/puppeteer/puppeteer-core.js');
 const {default:puppeteer}=await import(pathToFileURL(modulePath).href);
 const report={passed:false,errors:[],samples:[]};const save=()=>writeFileSync(resolve(output,'sfx-report.json'),JSON.stringify(report,null,2)+'\n');save();
 const browser=await puppeteer.launch({executablePath,headless:true,args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader','--autoplay-policy=no-user-gesture-required'],timeout:60000});

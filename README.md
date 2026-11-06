@@ -99,3 +99,9 @@ git commit -m "Import TH19 Web"
 ## 接入独立启动器
 
 现有 runtime/th19.html 和 runtime/th19-multiplayer.html 保留 eagler-touhou/1 协议，普通模式与联机模式分别使用 /savesth19 和 /savesth19mp 存档。启动器可通过同源配置引用 runtime/ 和 content/；需要由宿主提供资源加载、输入和联机房间配置。直接运行本仓库使用上面的 npm start。
+
+## 联机录像与旁观更新
+
+联机实战支持 `.rpy` 录像，单机不自动录制。录像按相同构建播放，支持暂停、倍速及定位。独立播放器：`node tools/replay/viewer-server.mjs FILE.rpy`。该工具使用网页引擎播放网页录像。
+
+本次同步包含四档难度与蓄力规则、射击命中特效、菜单返回与 Random 描述修复，以及联机结果页面和录像状态恢复修复。联机旁观需要配套更新的 eagler-touhou Relay。
