@@ -3,7 +3,7 @@ import {readFileSync,mkdtempSync,unlinkSync,rmdirSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {resolve} from 'node:path';
 const game=resolve(import.meta.dirname,'../cpp/game');
-const fixture=JSON.parse(readFileSync(new URL('../archive/th19-junowen-interop-20261106/native-primitives.json',import.meta.url),'utf8'));
+const fixture=JSON.parse(readFileSync(new URL('../../../archive/th19-junowen-interop-20261106/native-primitives.json',import.meta.url),'utf8'));
 const input=fixture.randomFloats.map(v=>`${v.state} ${v.scale} ${+v.signed} ${v.output.state} ${v.output.bits}`).join('\n')+'\n';
 const directory=mkdtempSync(resolve(tmpdir(),'th19-rng-test-'));
 const executable=resolve(directory,process.platform==='win32'?'test.exe':'test');

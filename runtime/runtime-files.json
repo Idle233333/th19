@@ -4,16 +4,16 @@
   "variant": "normal",
   "files": {
     "th19.html": {
-      "bytes": 608,
-      "sha256": "1e91a125cabe6cc0a711df14212273ec925dfa629e6b44208902f8a737be268f"
+      "bytes": 620,
+      "sha256": "ed77dc9b6888408a25ce338f0429702daf1f55980a1380611e81fc33c60295ec"
     },
     "resource-integrity.mjs": {
       "bytes": 2835,
       "sha256": "cd2a9f2173405bc14f1e0012d491a2ac1d89145d979bbfd49e94978e205564dc"
     },
     "shell.mjs": {
-      "bytes": 27343,
-      "sha256": "1f840563a4bf00a1f20e9c0141cd13b1a30e1b01f448323cec3cfd565dec402e"
+      "bytes": 27070,
+      "sha256": "33476cbc1111b741978619c858d13a0e5af387f3aed6892817b5629871030d4e"
     },
     "managed.css": {
       "bytes": 826,
@@ -24,8 +24,8 @@
       "sha256": "ab312d9f70ba75692c9e619610365a2543a92c274484265d0d345cf90bb9cfcf"
     },
     "netplay.mjs": {
-      "bytes": 25184,
-      "sha256": "b79c05bf46099570bc5865b36a674a9cb5fba3a3cbdaeed15591dcb05fe79ef4"
+      "bytes": 30779,
+      "sha256": "959782363e9c5715b7dfc6eca6db79b2cbe82abc84823cf76ae013fcb452a7e0"
     },
     "peer-socket.mjs": {
       "bytes": 7357,
@@ -36,16 +36,16 @@
       "sha256": "445076460e4909b9fc8f211b8c8c4ab3604956ad4a5b733b2bbf6d922ff42d42"
     },
     "native-adapter.mjs": {
-      "bytes": 1296,
-      "sha256": "c9766e896bf38576aec21d6faa1fe6a5866115dbf732265cdb320b380eacc125"
+      "bytes": 1337,
+      "sha256": "cef8fbc47df369f41ad4c349545ae44623e382e58383925e1174cb62997b8f66"
     },
     "th19-recording.mjs": {
-      "bytes": 14385,
-      "sha256": "029e91f98cc1684258fbd664cdf10ed388a8882ca0c31d2d51c32da39dc99ef0"
+      "bytes": 14425,
+      "sha256": "fe9eae6d6154f75362d4f903f352c75cc37cd4f4036b8d116fb4f311ee146633"
     },
     "replay-session.mjs": {
-      "bytes": 11744,
-      "sha256": "960878be89e79f4656146688edb29175c72631024dc2ce9551dd046eb2d53f4a"
+      "bytes": 11857,
+      "sha256": "9ecc2080f50fd950aa971af5ebc31445fc413f5ea32d9a4f8d0c61e251f8982b"
     },
     "directory-keyboard.mjs": {
       "bytes": 5540,
@@ -60,20 +60,20 @@
       "sha256": "f5f5d1015b56381b811b43bac00ecca5d6d7f03ab971b6e0fcffa79ef515bb34"
     },
     "th19.mjs": {
-      "bytes": 237315,
-      "sha256": "4d70983d0b38da2dcdf9767e5a1c027e092d59156273bbad03d1e010277b5396"
+      "bytes": 235498,
+      "sha256": "4ed349b3d6d47b913b03ffa8b8e252f764065d56f026abe0b4d00f6e31fcecce"
     },
     "th19.wasm": {
-      "bytes": 3179558,
-      "sha256": "8a4bc25e6e2f67dd0de8121a80483c200dea16659c488d70ff3fd8d6d5d62482"
+      "bytes": 3151756,
+      "sha256": "fa82328eeec0d11dd730915c0f3b4ac05238b422153d908f364137b1be57f5f2"
     },
     "manifest.json": {
       "bytes": 249,
-      "sha256": "3b962d3dacc05b40dab7095701e2df645220fc30f2d6ca0d6c2a6ff9eeaa7af0"
+      "sha256": "3cd35f87c61b3fe330b35fdcfbd058d1043cbac5df01ca195b3f9c925221cd21"
     },
     "th19-multiplayer.html": {
-      "bytes": 613,
-      "sha256": "bba5e997bd12091b7ee2b3907b7da169cc7b280105cd2cb6d21cee2533533e87"
+      "bytes": 625,
+      "sha256": "adfb7e5f3c7b98d7d61ca668a0f8affc10a9a1b82c04c9ac24c65eaae6010893"
     }
   }
 }
