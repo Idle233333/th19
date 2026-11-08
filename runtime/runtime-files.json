@@ -65,11 +65,11 @@
     },
     "th19.wasm": {
       "bytes": 3151756,
-      "sha256": "fa82328eeec0d11dd730915c0f3b4ac05238b422153d908f364137b1be57f5f2"
+      "sha256": "90fa32d627e89a5b55d32b942564492b13511984aad204ccae997a5b4bb5a6b0"
     },
     "manifest.json": {
       "bytes": 249,
-      "sha256": "3cd35f87c61b3fe330b35fdcfbd058d1043cbac5df01ca195b3f9c925221cd21"
+      "sha256": "972db3479591c37e33de5f9b6002b88c8fb3675d964709129ff7aff7d20e2f54"
     },
     "th19-multiplayer.html": {
       "bytes": 625,
